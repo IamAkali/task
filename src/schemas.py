@@ -15,11 +15,36 @@ class CreateUser(schemas.BaseUserCreate):
 
 
 class ReadUser(schemas.BaseUser[int]):
-    id: [int]
-    fullname: [str]
-    email: [str]
-    username: [str]
-    is_active: [bool]
-    is_superuser: [bool]
-    is_verified: [bool]
-    registered_at: [datetime]
+    id: int
+    fullname: str
+    email: str
+    username: str
+    is_active: bool
+    is_superuser: bool
+    is_verified: bool
+    registered_at: datetime
+
+
+class CreateTask(BaseModel):
+    title: str
+    description: str
+    category: int
+    status: int
+    deadline: datetime
+
+
+class ReadCategory(BaseModel):
+    id: int
+    title: str
+    owner: int
+
+
+class ReadTask(BaseModel):
+    id: int
+    title: str
+    description: str
+    owner: int
+    category: int
+    status: int
+    created: datetime
+    deadline: datetime
